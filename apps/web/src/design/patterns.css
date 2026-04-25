@@ -1,27 +1,47 @@
+:root {
+  --mx-color-bg: #120224;
+  --mx-color-surface: #1a0936;
+  --mx-color-text: #f7f2ff;
+  --mx-color-accent-0: #ff1178;
+  --mx-color-accent-1: #00f5d4;
+  --mx-color-accent-2: #ffe600;
+  --mx-color-accent-3: #7b61ff;
+  --mx-color-accent-4: #ff7a00;
+  --mx-shadow-button: 0 0 0 2px #000, 4px 4px 0 #00f5d4, 8px 8px 0 #ff1178,
+    0 0 24px rgba(255, 17, 120, 0.45);
+  --mx-shadow-card: 0 0 0 2px #000, 6px 6px 0 #ffe600, 10px 10px 0 #7b61ff,
+    0 0 32px rgba(0, 245, 212, 0.35);
+  --mx-shadow-text: 2px 2px 0 #000, 4px 4px 0 #ff1178, 6px 6px 0 #00f5d4;
+  --mx-motion-fast: 150ms;
+  --mx-motion-base: 260ms;
+  --mx-motion-slow: 420ms;
+  --mx-motion-easing: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 .pattern-dot-stripe {
   background-image:
-    radial-gradient(circle at 15% 15%, rgba(255, 230, 0, 0.45) 0 2px, transparent 2px),
+    radial-gradient(circle at 15% 15%, color-mix(in srgb, var(--mx-color-accent-2) 45%, transparent) 0 2px, transparent 2px),
     repeating-linear-gradient(
       120deg,
-      rgba(0, 245, 212, 0.25) 0 8px,
+      color-mix(in srgb, var(--mx-color-accent-1) 25%, transparent) 0 8px,
       transparent 8px 20px
     );
 }
 
 .pattern-mesh-zig {
   background-image:
-    linear-gradient(45deg, rgba(255, 17, 120, 0.18) 25%, transparent 25%),
-    linear-gradient(-45deg, rgba(123, 97, 255, 0.2) 25%, transparent 25%),
+    linear-gradient(45deg, color-mix(in srgb, var(--mx-color-accent-0) 18%, transparent) 25%, transparent 25%),
+    linear-gradient(-45deg, color-mix(in srgb, var(--mx-color-accent-3) 20%, transparent) 25%, transparent 25%),
     repeating-linear-gradient(
       0deg,
-      rgba(255, 122, 0, 0.16) 0 2px,
+      color-mix(in srgb, var(--mx-color-accent-4) 16%, transparent) 0 2px,
       transparent 2px 12px
     );
   background-size: 28px 28px, 28px 28px, auto;
 }
 
 .floating-orb {
-  animation: floatY 6s ease-in-out infinite;
+  animation: floatY var(--mx-motion-slow) var(--mx-motion-easing) infinite;
   will-change: transform;
 }
 
@@ -29,8 +49,16 @@
   0%,
   100% {
     transform: translateY(0) rotate(0deg);
+    opacity: 0.92;
   }
   50% {
     transform: translateY(-12px) rotate(3deg);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floating-orb {
+    animation: none;
   }
 }

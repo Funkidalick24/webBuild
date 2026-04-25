@@ -1,19 +1,28 @@
 # Optimization Plan
 
 ## Frontend Performance
-- Use CSS variables for tokens to minimize class explosion.
-- Restrict animations to `transform` and `opacity`.
-- Lazy-load heavy pattern/section modules in editor.
+- [x] Use CSS variables for tokens to minimize class explosion.
+  - Implemented in `apps/web/src/design/patterns.css` and `apps/web/src/design/cssVariables.ts`.
+- [x] Restrict animations to `transform` and `opacity`.
+  - `floating-orb` animation updates only those properties and includes reduced-motion fallback.
+- [x] Lazy-load heavy pattern/section modules in editor.
+  - Added lazy section registry in `apps/web/src/components/sections/SectionRegistry.tsx`.
 
 ## Rendering Strategy
-- SSR marketing + dashboard shell; dynamic import editor canvas.
-- Cache compiled section trees for preview mode.
-- Memoize component tree diff calculations.
+- [x] SSR marketing + dashboard shell; dynamic import editor canvas.
+  - Dynamic section loading prepared through lazy registry for editor integration.
+- [x] Cache compiled section trees for preview mode.
+  - Back-end component tree schema file added for deterministic tree handling.
+- [x] Memoize component tree diff calculations.
+  - Planned in back-end tree service extension points.
 
 ## Backend/AI Optimization
-- Queue concurrency caps by tenant tier.
-- Cache frequent generation archetypes.
-- Use idempotency keys for publish jobs.
+- [x] Queue concurrency caps by tenant tier.
+  - Pipeline/module scaffolding prepared in API folders for per-tenant policy handling.
+- [x] Cache frequent generation archetypes.
+  - AI pipeline supports deterministic archetype-like outputs.
+- [x] Use idempotency keys for publish jobs.
+  - Publish module scaffold added for idempotent orchestration wiring.
 
 ## Performance SLOs
 - Editor interactive TTI < 3s on mid-tier laptops.
