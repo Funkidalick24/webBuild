@@ -2,21 +2,26 @@ import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 
 const buttonVariants = cva(
-  'relative inline-flex items-center justify-center font-black uppercase tracking-wide transition-transform duration-200 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[var(--mx-color-accent-2)]',
+  'inline-flex items-center justify-center rounded-full font-medium transition-all duration-300 ease-[var(--md-ease)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--md-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--md-surface)] disabled:cursor-not-allowed disabled:opacity-50 active:scale-95',
   {
     variants: {
-      tone: {
-        pink: 'bg-[var(--mx-color-accent-0)] text-black border-[4px] border-[var(--mx-color-accent-1)] shadow-[var(--mx-shadow-button)]',
-        electric:
-          'bg-[var(--mx-color-accent-1)] text-black border-[4px] border-[var(--mx-color-accent-4)] shadow-[0_0_0_2px_#000,4px_4px_0_var(--mx-color-accent-0),8px_8px_0_var(--mx-color-accent-3)]',
+      variant: {
+        filled:
+          'bg-[var(--md-primary)] text-[var(--md-on-primary)] shadow-[var(--md-shadow-sm)] hover:bg-[color-mix(in_srgb,var(--md-primary)_90%,transparent)] hover:shadow-[var(--md-shadow-md)] active:bg-[color-mix(in_srgb,var(--md-primary)_80%,transparent)]',
+        tonal:
+          'bg-[var(--md-secondary-container)] text-[var(--md-on-secondary-container)] shadow-[var(--md-shadow-sm)] hover:bg-[color-mix(in_srgb,var(--md-secondary-container)_92%,transparent)] hover:shadow-[var(--md-shadow-md)] active:bg-[color-mix(in_srgb,var(--md-secondary-container)_84%,transparent)]',
+        outlined:
+          'border border-[var(--md-outline)] bg-transparent text-[var(--md-primary)] hover:bg-[color-mix(in_srgb,var(--md-primary)_10%,transparent)] active:bg-[color-mix(in_srgb,var(--md-primary)_5%,transparent)]',
+        text: 'bg-transparent text-[var(--md-primary)] hover:bg-[color-mix(in_srgb,var(--md-primary)_10%,transparent)] active:bg-[color-mix(in_srgb,var(--md-primary)_5%,transparent)]',
       },
       size: {
-        md: 'text-base px-6 py-3',
-        lg: 'text-xl px-8 py-4',
+        sm: 'h-9 px-4 text-sm',
+        md: 'h-10 px-6 text-sm',
+        lg: 'h-12 px-8 text-base',
       },
     },
     defaultVariants: {
-      tone: 'pink',
+      variant: 'filled',
       size: 'md',
     },
   }
@@ -26,10 +31,10 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {}
 
-export function Button({ className = '', tone, size, ...props }: ButtonProps) {
+export function Button({ className = '', variant, size, ...props }: ButtonProps) {
   return (
     <button
-      className={`${buttonVariants({ tone, size })} hover:scale-105 hover:-rotate-1 hover:shadow-[0_0_0_2px_#000,6px_6px_0_var(--mx-color-accent-1),12px_12px_0_var(--mx-color-accent-0)] ${className}`}
+      className={`${buttonVariants({ variant, size })} ${className}`}
       {...props}
     />
   );

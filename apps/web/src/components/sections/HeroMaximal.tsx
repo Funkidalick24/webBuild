@@ -1,53 +1,76 @@
+import Link from 'next/link';
 import { type CSSProperties } from 'react';
 
-import { getAccentForSection } from '../../design/tokens';
 import { Button } from '../ui/button';
 import { Card } from '../ui/card';
 import { Input } from '../ui/input';
+import { SectionFrame, type SectionMetadata } from './SectionFrame';
 
-export function HeroMaximal() {
-  const heroAccent = getAccentForSection(0);
+export type HeroMaximalProps = {
+  sectionIndex?: number;
+  meta?: Omit<SectionMetadata, 'sectionIndex'>;
+  eyebrow?: string;
+  headline?: string;
+  highlight?: string;
+  subhead?: string;
+  primaryCtaLabel?: string;
+  primaryCtaHref?: string;
+  secondaryCtaLabel?: string;
+  secondaryCtaHref?: string;
+  promptPlaceholder?: string;
+};
 
+export function HeroMaximal({
+  sectionIndex = 0,
+  meta = {},
+  eyebrow = 'Build personal sites, fast.',
+  headline = 'Website Builder',
+  highlight = 'Studio',
+  subhead = 'Generate a draft from a prompt, edit sections, then publish a clean prototype.',
+  primaryCtaLabel = 'Create a Site',
+  primaryCtaHref = '/create',
+  secondaryCtaLabel = 'Open Editor',
+  secondaryCtaHref = '/create',
+  promptPlaceholder = 'Neon skate shop with chaotic collage energy',
+}: HeroMaximalProps) {
   return (
-    <section
-      className="pattern-mesh-zig relative overflow-hidden border-b-[6px] border-[var(--mx-color-accent-4)] bg-[var(--mx-color-bg)] px-6 py-16 md:px-12"
-      style={{ '--hero-accent': heroAccent } as CSSProperties}
-    >
-      <div className="absolute -left-6 top-8 floating-orb text-6xl">💥</div>
-      <div className="absolute right-8 top-24 floating-orb text-5xl">⚡</div>
-      <div className="absolute bottom-10 left-1/3 floating-orb text-4xl">🎉</div>
+    <SectionFrame meta={{ sectionIndex, ...meta }} title={undefined}>
+      <div style={{ '--hero-accent': 'var(--md-primary)' } as CSSProperties}>
+        <p className="text-sm font-medium text-[var(--md-on-surface-variant)]">{eyebrow}</p>
 
-      <p className="mb-4 -rotate-2 text-xl font-black uppercase tracking-[0.2em] text-[var(--mx-color-accent-1)]">
-        Build Loud. Ship Fast.
-      </p>
+        <h1 className="mt-4 max-w-5xl text-[clamp(3rem,6vw,3.5rem)] font-medium leading-[1.15] tracking-[-0.01em] text-[var(--md-on-surface)]">
+          {headline}{' '}
+          <span className="text-[var(--md-primary)]" style={{ whiteSpace: 'nowrap' }}>
+            {highlight}
+          </span>
+        </h1>
 
-      <h1 className="max-w-5xl text-[clamp(3rem,10vw,8rem)] font-black uppercase leading-[0.9] text-[var(--mx-color-accent-2)] [text-shadow:var(--mx-shadow-text)]">
-        Website Builder
-        <span className="ml-3 inline-block -rotate-2 bg-gradient-to-r from-[var(--hero-accent)] via-[var(--mx-color-accent-2)] to-[var(--mx-color-accent-1)] bg-clip-text text-transparent animate-pulse">
-          Engine
-        </span>
-      </h1>
+        <p className="mt-4 max-w-3xl text-lg leading-7 text-[var(--md-on-surface-variant)]">{subhead}</p>
 
-      <div className="mt-10 grid gap-8 md:grid-cols-[1.2fr_0.8fr]">
-        <Card className="-rotate-1" accent="var(--mx-color-accent-2)">
-          <p className="mb-4 text-xl font-extrabold">AI + Drag & Drop + Maximalist DNA</p>
-          <div className="flex flex-wrap gap-4">
-            <Button size="lg" tone="pink">
-              Start from Prompt
-            </Button>
-            <Button size="lg" tone="electric">
-              Open Editor
-            </Button>
-          </div>
-        </Card>
+        <div className="mt-10 grid gap-8 md:grid-cols-[1.2fr_0.8fr]">
+          <Card className="rounded-[var(--md-radius-2xl)] p-8" interactive>
+            <div className="flex flex-wrap gap-3">
+              <Link href={primaryCtaHref}>
+                <Button size="lg" variant="filled">
+                  {primaryCtaLabel}
+                </Button>
+              </Link>
+              <Link href={secondaryCtaHref}>
+                <Button size="lg" variant="tonal">
+                  {secondaryCtaLabel}
+                </Button>
+              </Link>
+            </div>
+          </Card>
 
-        <Card className="rotate-1 border-double" accent="var(--mx-color-accent-1)">
-          <label className="mb-2 block text-sm font-black uppercase tracking-widest text-[var(--mx-color-accent-1)]">
-            Describe your brand vibe
-          </label>
-          <Input placeholder="Neon skate shop with chaotic collage energy" />
-        </Card>
+          <Card className="rounded-[var(--md-radius-2xl)] p-8">
+            <label className="mb-3 block text-sm font-medium text-[var(--md-on-surface-variant)]">
+              Describe your brand vibe
+            </label>
+            <Input placeholder={promptPlaceholder} />
+          </Card>
+        </div>
       </div>
-    </section>
+    </SectionFrame>
   );
 }

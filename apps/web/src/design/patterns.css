@@ -16,20 +16,21 @@
   --mx-motion-base: 260ms;
   --mx-motion-slow: 420ms;
   --mx-motion-easing: cubic-bezier(0.22, 1, 0.36, 1);
-}
 
-.pattern-dot-stripe {
-  background-image:
-    radial-gradient(circle at 15% 15%, color-mix(in srgb, var(--mx-color-accent-2) 45%, transparent) 0 2px, transparent 2px),
+  /* Pattern tokens (used by .mx-pattern-layered). */
+  --mx-pattern-dot-stripe:
+    radial-gradient(
+      circle at 15% 15%,
+      color-mix(in srgb, var(--mx-color-accent-2) 45%, transparent) 0 2px,
+      transparent 2px
+    ),
     repeating-linear-gradient(
       120deg,
       color-mix(in srgb, var(--mx-color-accent-1) 25%, transparent) 0 8px,
       transparent 8px 20px
     );
-}
 
-.pattern-mesh-zig {
-  background-image:
+  --mx-pattern-mesh-zig:
     linear-gradient(45deg, color-mix(in srgb, var(--mx-color-accent-0) 18%, transparent) 25%, transparent 25%),
     linear-gradient(-45deg, color-mix(in srgb, var(--mx-color-accent-3) 20%, transparent) 25%, transparent 25%),
     repeating-linear-gradient(
@@ -37,28 +38,52 @@
       color-mix(in srgb, var(--mx-color-accent-4) 16%, transparent) 0 2px,
       transparent 2px 12px
     );
+
+  --mx-pattern-checker:
+    repeating-conic-gradient(
+      from 45deg,
+      color-mix(in srgb, var(--mx-color-accent-3) 22%, transparent) 0 25%,
+      transparent 0 50%
+    );
+
+  --mx-pattern-spray:
+    radial-gradient(circle at 20% 30%, color-mix(in srgb, var(--mx-color-accent-0) 35%, transparent) 0 18px, transparent 19px),
+    radial-gradient(circle at 70% 20%, color-mix(in srgb, var(--mx-color-accent-2) 25%, transparent) 0 14px, transparent 15px),
+    radial-gradient(circle at 55% 65%, color-mix(in srgb, var(--mx-color-accent-1) 22%, transparent) 0 12px, transparent 13px),
+    radial-gradient(circle at 30% 80%, color-mix(in srgb, var(--mx-color-accent-4) 18%, transparent) 0 10px, transparent 11px);
+}
+
+.mx-pattern-layered {
+  position: relative;
+}
+
+.mx-pattern-layered::before,
+.mx-pattern-layered::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  will-change: opacity;
+}
+
+.mx-pattern-layered::before {
+  background-image: var(--mx-pattern-a);
   background-size: 28px 28px, 28px 28px, auto;
+  opacity: 0.72;
 }
 
-.floating-orb {
-  animation: floatY var(--mx-motion-slow) var(--mx-motion-easing) infinite;
-  will-change: transform;
+.mx-pattern-layered::after {
+  background-image: var(--mx-pattern-b);
+  background-size: 28px 28px, 28px 28px, auto;
+  mix-blend-mode: screen;
+  opacity: 0.55;
 }
 
-@keyframes floatY {
-  0%,
-  100% {
-    transform: translateY(0) rotate(0deg);
-    opacity: 0.92;
-  }
-  50% {
-    transform: translateY(-12px) rotate(3deg);
-    opacity: 1;
-  }
+.pattern-dot-stripe {
+  background-image: var(--mx-pattern-dot-stripe);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .floating-orb {
-    animation: none;
-  }
+.pattern-mesh-zig {
+  background-image: var(--mx-pattern-mesh-zig);
+  background-size: 28px 28px, 28px 28px, auto;
 }

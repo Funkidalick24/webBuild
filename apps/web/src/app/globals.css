@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Material You (Material Design 3) tokens and global styles. */
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  /* Let form controls choose correct styling in light/dark. */
+  color-scheme: light dark;
+}
+
+:root {
+  /* Motion */
+  --md-ease: cubic-bezier(0.2, 0, 0, 1);
+
+  /* Typography */
+  --md-font: Roboto, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Arial, 'Noto Sans', 'Liberation Sans',
+    sans-serif;
+
+  /* Radius */
+  --md-radius-sm: 12px;
+  --md-radius-md: 16px;
+  --md-radius-lg: 24px;
+  --md-radius-xl: 32px;
+  --md-radius-2xl: 48px;
+
+  /* Light palette (seed #6750A4) */
+  --md-surface: #fffbfe;
+  --md-on-surface: #1c1b1f;
+  --md-on-surface-variant: #49454f;
+  --md-surface-container: #f3edf7;
+  --md-surface-container-low: #e7e0ec;
+  --md-outline: #79747e;
+
+  --md-primary: #6750a4;
+  --md-on-primary: #ffffff;
+  --md-secondary-container: #e8def8;
+  --md-on-secondary-container: #1d192b;
+  --md-tertiary: #7d5260;
+  --md-on-tertiary: #ffffff;
+
+  /* Shadows (soft elevation) */
+  --md-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.08), 0 1px 1px rgba(0, 0, 0, 0.06);
+  --md-shadow-md: 0 4px 10px rgba(0, 0, 0, 0.12), 0 2px 3px rgba(0, 0, 0, 0.06);
+  --md-shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.16), 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+html[data-theme='dark'] {
+  /* Dark palette (derived from the same seed; matches common MD3 purple themes). */
+  --md-surface: #141218;
+  --md-on-surface: #e6e1e5;
+  --md-on-surface-variant: #cac4d0;
+  --md-surface-container: #211f26;
+  --md-surface-container-low: #1d1b20;
+  --md-outline: #938f99;
+
+  --md-primary: #d0bcff;
+  --md-on-primary: #381e72;
+  --md-secondary-container: #4a4458;
+  --md-on-secondary-container: #e8def8;
+  --md-tertiary: #efb8c8;
+  --md-on-tertiary: #492532;
+
+  --md-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.28), 0 1px 1px rgba(0, 0, 0, 0.18);
+  --md-shadow-md: 0 6px 18px rgba(0, 0, 0, 0.34), 0 2px 4px rgba(0, 0, 0, 0.18);
+  --md-shadow-lg: 0 18px 42px rgba(0, 0, 0, 0.42), 0 6px 12px rgba(0, 0, 0, 0.22);
+}
+
+body {
+  font-family: var(--md-font);
+  background: var(--md-surface);
+  color: var(--md-on-surface);
+}
+
+* {
+  outline-color: var(--md-primary);
+}

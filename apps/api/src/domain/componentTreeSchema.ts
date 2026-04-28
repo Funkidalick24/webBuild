@@ -26,7 +26,8 @@ export function validateMaximalismConstraints(tree: VersionedComponentTree): str
 
   for (const node of tree.nodes) {
     const patternCount = node.metadata?.patterns?.length ?? 0;
-    if (node.type.toLowerCase().includes('section') && patternCount < 2) {
+    const isSectionNode = node.metadata?.sectionIndex !== undefined;
+    if (isSectionNode && patternCount < 2) {
       errors.push(`Section ${node.id} must include at least 2 patterns.`);
     }
   }

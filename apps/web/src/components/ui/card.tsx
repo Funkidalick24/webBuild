@@ -1,14 +1,15 @@
 import * as React from 'react';
 
 type CardProps = React.HTMLAttributes<HTMLDivElement> & {
-  accent?: string;
+  interactive?: boolean;
 };
 
-export function Card({ accent = 'var(--mx-color-accent-2)', className = '', ...props }: CardProps) {
+export function Card({ interactive = false, className = '', ...props }: CardProps) {
   return (
     <div
-      className={`pattern-dot-stripe relative rounded-none border-[4px] border-dashed bg-[var(--mx-color-surface)] p-6 text-[var(--mx-color-text)] shadow-[var(--mx-shadow-card)] ${className}`}
-      style={{ borderColor: accent }}
+      className={`rounded-[var(--md-radius-lg)] bg-[var(--md-surface-container)] p-6 text-[var(--md-on-surface)] shadow-[var(--md-shadow-sm)] transition-all duration-300 ease-[var(--md-ease)] ${
+        interactive ? 'hover:shadow-[var(--md-shadow-md)] hover:scale-[1.01]' : ''
+      } ${className}`}
       {...props}
     />
   );

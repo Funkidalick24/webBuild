@@ -1,0 +1,85 @@
+
+> @webbuild/web@0.0.0 dev
+> next dev -p 3000
+
+   ▲ Next.js 15.5.15
+   - Local:        http://localhost:3000
+   - Network:      http://172.24.192.1:3000
+
+ ✓ Starting...
+ ✓ Ready in 6.1s
+ ○ Compiling / ...
+ ✓ Compiled / in 3s (596 modules)
+ GET / 200 in 4938ms
+ ○ Compiling /create ...
+ ✓ Compiled /create in 4.6s (631 modules)
+ GET /create 200 in 5449ms
+ ○ Compiling /v1/ai/generate-site ...
+ ✓ Compiled /v1/ai/generate-site in 1266ms (639 modules)
+ POST /v1/ai/generate-site 200 in 1682ms
+ ✓ Compiled /v1/sites in 396ms (630 modules)
+ POST /v1/sites 200 in 498ms
+ GET / 200 in 756ms
+ GET /create 200 in 91ms
+ GET / 200 in 175ms
+ GET /create 200 in 241ms
+ ○ Compiling /editor/[siteId] ...
+ ✓ Compiled /editor/[siteId] in 1762ms (651 modules)
+ POST /v1/ai/generate-site 200 in 477ms
+ POST /v1/sites 200 in 39ms
+ ○ Compiling /v1/pages/layout ...
+ ✓ Compiled /v1/pages/layout in 531ms (653 modules)
+ PATCH /v1/pages/layout 200 in 641ms
+ GET /editor/site_f847023dfe2649e6895be7a8f8f9712a 200 in 1321ms
+ GET /editor/site_f98b4a686e944d9cbe8fb62da3c36b8b 200 in 4045ms
+ ○ Compiling /v1/sites/[siteId] ...
+ ✓ Compiled /v1/sites/[siteId] in 1318ms (657 modules)
+ GET /v1/sites/site_f847023dfe2649e6895be7a8f8f9712a 200 in 2973ms
+ GET /v1/pages/site_f847023dfe2649e6895be7a8f8f9712a_home/layout 200 in 2994ms
+ GET /v1/sites/site_f847023dfe2649e6895be7a8f8f9712a 200 in 151ms
+ GET /v1/pages/site_f847023dfe2649e6895be7a8f8f9712a_home/layout 200 in 168ms
+ ○ Compiling /v1/publish/[siteId] ...
+ ✓ Compiled /v1/publish/[siteId] in 906ms (659 modules)
+ POST /v1/publish/site_f98b4a686e944d9cbe8fb62da3c36b8b 400 in 2276ms
+ POST /v1/ai/generate-site 200 in 43ms
+ POST /v1/sites 200 in 41ms
+ PATCH /v1/pages/layout 200 in 43ms
+ POST /v1/publish/site_fe695e91867f4f4da0cb9453f3be7bb0 200 in 54ms
+ ○ Compiling /published/[versionId] ...
+ ✓ Compiled /published/[versionId] in 1800ms (674 modules)
+ GET /published/ver_4bbbc119a01540599f27b97f90cd0abd 200 in 5642ms
+ GET /create 200 in 108ms
+ GET /v1/pages/site_f847023dfe2649e6895be7a8f8f9712a_home/layout 200 in 85ms
+ GET /v1/sites/site_f847023dfe2649e6895be7a8f8f9712a 200 in 127ms
+ GET /v1/pages/site_f847023dfe2649e6895be7a8f8f9712a_home/layout 200 in 46ms
+ GET /v1/sites/site_f847023dfe2649e6895be7a8f8f9712a 200 in 58ms
+ GET /create 200 in 64ms
+ POST /v1/ai/generate-site 200 in 34ms
+ POST /v1/sites 200 in 115ms
+ PATCH /v1/pages/layout 200 in 68ms
+ GET /editor/site_2226c878000544e494bfa0c8c468078e 200 in 129ms
+ GET /v1/pages/site_2226c878000544e494bfa0c8c468078e_home/layout 200 in 115ms
+ GET /v1/sites/site_2226c878000544e494bfa0c8c468078e 200 in 128ms
+ GET /v1/pages/site_2226c878000544e494bfa0c8c468078e_home/layout 200 in 177ms
+ GET /v1/sites/site_2226c878000544e494bfa0c8c468078e 200 in 214ms
+ PATCH /v1/pages/layout 200 in 33ms
+ POST /v1/publish/site_2226c878000544e494bfa0c8c468078e 200 in 61ms
+ GET /published/ver_3e4ef4e6ca494b458be2d5cfd353f9e0 200 in 761ms
+ PATCH /v1/pages/layout 200 in 39ms
+ GET /create 200 in 268ms
+ GET /v1/pages/site_2226c878000544e494bfa0c8c468078e_home/layout 200 in 202ms
+ GET /v1/sites/site_2226c878000544e494bfa0c8c468078e 200 in 209ms
+ GET /v1/pages/site_2226c878000544e494bfa0c8c468078e_home/layout 200 in 85ms
+ GET /v1/sites/site_2226c878000544e494bfa0c8c468078e 200 in 95ms
+ GET / 200 in 172ms
+ GET /published/ver_3e4ef4e6ca494b458be2d5cfd353f9e0 200 in 1499ms
+ GET / 200 in 1902ms
+ GET /create 200 in 239ms
+ POST /v1/ai/generate-site 200 in 236ms
+ POST /v1/sites 200 in 103ms
+ PATCH /v1/pages/layout 200 in 72ms
+ GET /editor/site_e71af28573c347bca50f48018d21eea2 200 in 259ms
+ GET /v1/pages/site_e71af28573c347bca50f48018d21eea2_home/layout 200 in 144ms
+ GET /v1/sites/site_e71af28573c347bca50f48018d21eea2 200 in 242ms
+ GET /v1/pages/site_e71af28573c347bca50f48018d21eea2_home/layout 200 in 325ms
+ GET /v1/sites/site_e71af28573c347bca50f48018d21eea2 200 in 224ms
